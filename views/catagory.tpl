@@ -3,17 +3,45 @@
 <html>
   <head>
     <title>Beego</title>
-    {{template "header"}}
+    {{template "header" .}}
   </head>
 <body>
 	{{template "native" .}}
 	<div class="container">
-		<div class="page-header">
-			<h1>这是我的第一篇博客</h1>
-			<h6 class="text-muted">文导发表于2015年10月12日 浏览次数：200 评论次数 300</h6>
-			<p>大家好。欢迎大家阅读本博客。这是一篇基础beego开发的博客,请大家多多提出意见和建议哈。如有好的建议，请发邮箱给我们</p>
-		</div>
+		<form method="POST" path="/catagory">
+		  <div class="form-group">
+		    <label for="title"><h4>标题</h4></label>
+		    <input type="text" class="form-control" id="title" name ="title">
+		  </div>
+		<button type="submit" class="btn btn-default">Add New Title</button>
+		</form>
+
 	</div>	
+	</br>
+	<div class="container">
+		<table class="table">
+			<tr>
+				<th>#</th>
+				<th>标题</th>
+				<th>创建时间</th>
+				<th>访问量</th>
+				<th>最后更新时间</th>
+				<th>最后更新用户</th>
+			</tr>
+			{{range .Catagorys}}
+			<tr>
+				<td>#</td>
+				<td>{{.Title}}</td>
+				<td>{{.Ctime}}</td>
+				<td>{{.Views}}</td>
+				<td>{{.TopicTime}}</td>
+				<td>{{.TopicUserId}}</td>
+			</tr>
+			{{end}}
+  		</table>
+	</div>
+		
+	
 </body>
 <!-- jQuery文件。务必在bootstrap.min.js 之前引入 -->
 <script src="/static/jquery.min.js"></script>

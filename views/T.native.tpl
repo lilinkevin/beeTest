@@ -7,9 +7,9 @@
     		</div>
 			<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
      			<ul class="nav navbar-nav">
-        			<li><a href="/">首页 <span class="sr-only">(current)</span></a></li>
-        			<li><a href="/catagory">分类 <span class="sr-only">(current)</span></a></li>
-        			<li><a href="/topic">文章<span class="sr-only">(current)</span></a></li>
+        			<li {{if .IsMain}} class="active" {{end}}><a href="/">首页 <span class="sr-only">(current)</span></a></li>
+        			<li {{if .IsCatagory}} class="active" {{end}}><a href="/catagory">分类 <span class="sr-only">(current)</span></a></li>
+        			<li {{if .IsTopic}} class="active" {{end}}><a href="/topic">文章<span class="sr-only">(current)</span></a></li>
   				</ul>
           <ul class="nav navbar-nav navbar-right">
             {{ if .HasLogin}}
@@ -18,8 +18,6 @@
             {{ else }}
               <li><a href="/login">Login</a></li>
             {{end}}
-
-            
           </ul>
 			</div>
 		</div>	

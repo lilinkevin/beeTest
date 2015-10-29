@@ -14,5 +14,6 @@ func (c *MainController) Get() {
 	hasLogin, username := CheckLogin(c.Ctx)
 	c.Data["HasLogin"] = hasLogin
 	c.Data["UserName"] = username
+	c.Data["IsMain"] = true
 	c.TplNames = "index.tpl"
 }
